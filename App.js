@@ -11,6 +11,7 @@ import RecentExpenses from "./screens/RecentExpenses";
 import { Ionicons } from "@expo/vector-icons";
 import { GlobalStyles } from "./constants/styles";
 import ManageExpense from "./screens/ManageExpense";
+import ExpensesContextProvider from "./store/expenses-context";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
@@ -103,24 +104,37 @@ export default function App() {
         <>
             <StatusBar style="dark" />
             <View style={styles.rootContainer} onLayout={onLayoutRootView}>
-                <NavigationContainer>
-                    <Stack.Navigator>
-                        <Stack.Screen
-                            name="expenseOverviewScreen"
-                            component={ExpenseOverview}
-                            options={{
-                                headerShown: false,
+                <ExpensesContextProvider>
+                    <NavigationContainer>
+                        <Stack.Navigator
+                            screenOptions={{
+                                contentStyle: {
+                                    backgroundColor: "white",
+                                },
                             }}
-                        />
-                        <Stack.Screen
-                            name="manageExpense"
-                            component={ManageExpense}
-                            options={{
-                                presentation: "modal",
-                            }}
-                        />
-                    </Stack.Navigator>
-                </NavigationContainer>
+                        >
+                            <Stack.Screen
+                                name="expenseOverviewScreen"
+                                component={ExpenseOverview}
+                                options={{
+                                    headerShown: false,
+                                }}
+                            />
+                            <Stack.Screen
+                                name="manageExpense"
+                                component={ManageExpense}
+                                options={{
+                                    presentation: "modal",
+                                    headerTitleStyle: {
+                                        fontFamily: "poppins-500",
+                                        fontSize: 16,
+                                    },
+                                    headerShadowVisible: false,
+                                }}
+                            />
+                        </Stack.Navigator>
+                    </NavigationContainer>
+                </ExpensesContextProvider>
             </View>
         </>
     );

@@ -21,9 +21,9 @@ const ExpensesSummary = ({ expenses, periodName }) => {
                 <Text style={styles.amountText}>${expensesSum.toFixed(2)}</Text>
             </View>
             <ButtonIcon
+                isIcon={true}
                 iconName="ios-add-circle-outline"
                 text="Add Expense"
-                btnStyle={styles.button}
                 onPress={addExpenseHandler}
             />
         </View>
@@ -51,8 +51,5 @@ const styles = StyleSheet.create({
     amountText: {
         fontFamily: "poppins-500",
         fontSize: 40,
-    },
-    button: {
-        // transform: [{ translateY: 4 }],
     },
 });

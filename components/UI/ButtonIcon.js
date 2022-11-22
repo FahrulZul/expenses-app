@@ -2,20 +2,30 @@ import { Pressable, View, Text, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { GlobalStyles } from "../../constants/styles";
 
-const ButtonIcon = ({ iconName, text, btnStyle, onPress }) => {
+const ButtonIcon = ({
+    isIcon = false,
+    iconName,
+    iconColor = GlobalStyles.colors.slate800,
+    text,
+    onPress,
+    bgColor = "white",
+}) => {
     return (
-        <View style={[styles.container, btnStyle]}>
+        <View style={[styles.container, { backgroundColor: bgColor }]}>
             <Pressable
                 style={styles.pressable}
-                android_ripple={{ color: GlobalStyles.colors.slate100 }}
+                android_ripple={{ color: GlobalStyles.colors.slate50 }}
                 onPress={onPress}
             >
-                <Ionicons
-                    name={iconName}
-                    size={20}
-                    color={GlobalStyles.colors.slate900}
-                    style={styles.icon}
-                />
+                {isIcon && (
+                    <Ionicons
+                        name={iconName}
+                        size={20}
+                        color={iconColor}
+                        style={styles.icon}
+                    />
+                )}
+
                 <Text style={styles.text}>{text}</Text>
             </Pressable>
         </View>
@@ -33,7 +43,6 @@ const styles = StyleSheet.create({
     pressable: {
         flexDirection: "row",
         alignItems: "center",
-        backgroundColor: "white",
         paddingVertical: 8,
         paddingHorizontal: 16,
     },
@@ -44,6 +53,6 @@ const styles = StyleSheet.create({
         fontFamily: "poppins-400",
         transform: [{ translateY: 1 }],
         fontSize: 12,
-        color: GlobalStyles.colors.slate90,
+        color: GlobalStyles.colors.slate900,
     },
 });
