@@ -43,13 +43,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     periodText: {
-        fontFamily: "poppins-500",
+        fontFamily: "outfit-400",
         fontSize: 13,
         color: GlobalStyles.colors.slate500,
-        transform: [{ translateY: 6 }],
     },
     amountText: {
         fontFamily: "poppins-500",
         fontSize: 40,
+        backgroundColor: "red",
     },
 });

@@ -8,13 +8,17 @@ const ButtonIcon = ({
     iconColor = GlobalStyles.colors.slate800,
     text,
     onPress,
-    bgColor = "white",
+    dark = false,
 }) => {
     return (
-        <View style={[styles.container, { backgroundColor: bgColor }]}>
+        <View style={[styles.container, dark ? styles.containerDark : {}]}>
             <Pressable
                 style={styles.pressable}
-                android_ripple={{ color: GlobalStyles.colors.slate50 }}
+                android_ripple={
+                    dark
+                        ? { color: GlobalStyles.colors.slate700 }
+                        : { color: GlobalStyles.colors.slate50 }
+                }
                 onPress={onPress}
             >
                 {isIcon && (
@@ -26,7 +30,9 @@ const ButtonIcon = ({
                     />
                 )}
 
-                <Text style={styles.text}>{text}</Text>
+                <Text style={[styles.text, dark ? styles.darkText : {}]}>
+                    {text}
+                </Text>
             </Pressable>
         </View>
     );
@@ -39,6 +45,10 @@ const styles = StyleSheet.create({
         borderRadius: 24,
         overflow: "hidden",
         elevation: 2,
+        backgroundColor: "white",
+    },
+    containerDark: {
+        backgroundColor: GlobalStyles.colors.slate800,
     },
     pressable: {
         flexDirection: "row",
@@ -54,5 +64,8 @@ const styles = StyleSheet.create({
         transform: [{ translateY: 1 }],
         fontSize: 12,
         color: GlobalStyles.colors.slate900,
+    },
+    darkText: {
+        color: GlobalStyles.colors.slate50,
     },
 });

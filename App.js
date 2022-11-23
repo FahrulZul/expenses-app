@@ -15,6 +15,7 @@ import ExpensesContextProvider from "./store/expenses-context";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
+        "outfit-400": require("./assets/fonts/outfit/Outfit-Regular.ttf"),
         "poppins-400": require("./assets/fonts/poppins/Poppins-Regular.ttf"),
         "poppins-500": require("./assets/fonts/poppins/Poppins-Medium.ttf"),
         "poppins-600": require("./assets/fonts/poppins/Poppins-SemiBold.ttf"),
