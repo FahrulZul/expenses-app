@@ -12,6 +12,10 @@ const ManageExpense = ({ route, navigation }) => {
     const editedExpenseId = route.params?.expenseId;
     const isEditing = !!editedExpenseId;
 
+    const expenseData = expensesContext.expenses.find(
+        (expense) => expense.id === editedExpenseId
+    );
+
     useLayoutEffect(() => {
         navigation.setOptions({
             title: isEditing ? "Edit Expense" : "Add Expense",
@@ -43,21 +47,13 @@ const ManageExpense = ({ route, navigation }) => {
         });
     }, [isEditing]);
 
-    const confirmHandler = () => {
-        navigation.goBack();
+    const confirmHandler = (expenseData) => {
         if (isEditing) {
-            expensesContext.updateExpense(editedExpenseId, {
-                description: "Updated Item",
-                amount: 10.52,
-                date: new Date("2022-11-19"),
-            });
+            expensesContext.updateExpense(editedExpenseId, expenseData);
         } else {
-            expensesContext.addExpense({
-                description: "New added Item",
-                amount: 16.72,
-                date: new Date(),
-            });
+            expensesContext.addExpense(expenseData);
         }
+        navigation.goBack();
     };
 
     const deleteExpenseHandler = () => {
@@ -65,17 +61,18 @@ const ManageExpense = ({ route, navigation }) => {
         expensesContext.deleteExpense(editedExpenseId);
     };
 
+    const cancelhandler = () => {
+        navigation.goBack();
+    };
+
     return (
         <View style={styles.screenContainer}>
-            <ExpenseForm />
-            <View style={styles.buttonWrapper}>
-                <ButtonIcon
-                    isIcon={false}
-                    text={isEditing ? "Update" : "Add"}
-                    dark={true}
-                    onPress={confirmHandler}
-                />
-            </View>
+            <ExpenseForm
+                isEditing={isEditing}
+                onCancel={cancelhandler}
+                onSubmit={confirmHandler}
+                defaultExpense={expenseData}
+            />
         </View>
     );
 };
@@ -91,11 +88,5 @@ const styles = StyleSheet.create({
     buttonWrapper: {
         alignItems: "flex-start",
         marginTop: 24,
-    },
-    deleteBtnWrapper: {
-        paddingTop: 16,
-        marginTop: 16,
-        borderTopWidth: 1,
-        borderTopColor: GlobalStyles.colors.slate200,
     },
 });

@@ -46,17 +46,17 @@ const styles = StyleSheet.create({
         marginHorizontal: 16,
     },
     descText: {
-        fontFamily: "poppins-600",
+        fontFamily: "lexend-400",
         fontSize: 14,
-        color: GlobalStyles.colors.slate700,
+        marginBottom: 5,
     },
     dateText: {
-        fontFamily: "poppins-400",
+        fontFamily: "lexend-400",
         fontSize: 12,
         color: GlobalStyles.colors.slate400,
     },
     amountText: {
-        fontFamily: "poppins-400",
+        fontFamily: "lexend-500",
         fontSize: 14,
     },
 });

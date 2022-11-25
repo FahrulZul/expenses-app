@@ -36,20 +36,19 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: GlobalStyles.colors.slate200,
         paddingTop: 100,
-        paddingBottom: 8,
+        paddingBottom: 20,
         paddingHorizontal: 16,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
     },
     periodText: {
-        fontFamily: "outfit-400",
-        fontSize: 13,
+        fontFamily: "lexend-400",
+        fontSize: 14,
         color: GlobalStyles.colors.slate500,
     },
     amountText: {
-        fontFamily: "poppins-500",
+        fontFamily: "lexend-500",
         fontSize: 40,
-        backgroundColor: "red",
     },
 });

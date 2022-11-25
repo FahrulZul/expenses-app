@@ -9,9 +9,16 @@ const ButtonIcon = ({
     text,
     onPress,
     dark = false,
+    ghost = false,
 }) => {
     return (
-        <View style={[styles.container, dark ? styles.containerDark : {}]}>
+        <View
+            style={[
+                styles.container,
+                dark && styles.containerDark,
+                ghost && styles.containerGhost,
+            ]}
+        >
             <Pressable
                 style={styles.pressable}
                 android_ripple={
@@ -30,7 +37,7 @@ const ButtonIcon = ({
                     />
                 )}
 
-                <Text style={[styles.text, dark ? styles.darkText : {}]}>
+                <Text style={[styles.text, dark && styles.darkText]}>
                     {text}
                 </Text>
             </Pressable>
@@ -50,6 +57,11 @@ const styles = StyleSheet.create({
     containerDark: {
         backgroundColor: GlobalStyles.colors.slate800,
     },
+    containerGhost: {
+        backgroundColor: "none",
+        elevation: 0,
+        marginRight: 6,
+    },
     pressable: {
         flexDirection: "row",
         alignItems: "center",
@@ -60,8 +72,7 @@ const styles = StyleSheet.create({
         marginRight: 4,
     },
     text: {
-        fontFamily: "poppins-400",
-        transform: [{ translateY: 1 }],
+        fontFamily: "lexend-500",
         fontSize: 12,
         color: GlobalStyles.colors.slate900,
     },

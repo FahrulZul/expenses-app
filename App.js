@@ -15,11 +15,9 @@ import ExpensesContextProvider from "./store/expenses-context";
 
 export default function App() {
     const [fontsLoaded] = useFonts({
-        "outfit-400": require("./assets/fonts/outfit/Outfit-Regular.ttf"),
-        "poppins-400": require("./assets/fonts/poppins/Poppins-Regular.ttf"),
-        "poppins-500": require("./assets/fonts/poppins/Poppins-Medium.ttf"),
-        "poppins-600": require("./assets/fonts/poppins/Poppins-SemiBold.ttf"),
-        "poppins-700": require("./assets/fonts/poppins/Poppins-Bold.ttf"),
+        "lexend-400": require("./assets/fonts/Lexend/Lexend-Regular.ttf"),
+        "lexend-500": require("./assets/fonts/Lexend/Lexend-Medium.ttf"),
+        "lexend-600": require("./assets/fonts/Lexend/Lexend-SemiBold.ttf"),
     });
 
     useEffect(() => {
@@ -47,7 +45,7 @@ export default function App() {
             <BottomTab.Navigator
                 screenOptions={{
                     headerTitleStyle: {
-                        fontFamily: "poppins-500",
+                        fontFamily: "lexend-500",
                         fontSize: 16,
                     },
                     tabBarStyle: {
@@ -60,8 +58,8 @@ export default function App() {
                         paddingTop: 12,
                     },
                     tabBarLabelStyle: {
-                        fontFamily: "poppins-400",
-                        fontSize: 10,
+                        fontFamily: "lexend-400",
+                        fontSize: 12,
                     },
                     tabBarActiveTintColor: GlobalStyles.colors.slate800,
                     tabBarInactiveTintColor: GlobalStyles.colors.slate400,
@@ -127,7 +125,7 @@ export default function App() {
                                 options={{
                                     presentation: "modal",
                                     headerTitleStyle: {
-                                        fontFamily: "poppins-500",
+                                        fontFamily: "lexend-500",
                                         fontSize: 16,
                                     },
                                     headerShadowVisible: false,
