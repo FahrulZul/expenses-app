@@ -6,6 +6,7 @@ import HeaderButton from "../components/UI/HeaderButton";
 
 import { GlobalStyles } from "../constants/styles";
 import { ExpensesContext } from "../store/expenses-context";
+import { deleteExpense, storeExpense, updateExpense } from "../util/http";
 
 const ManageExpense = ({ route, navigation }) => {
     const expensesContext = useContext(ExpensesContext);
@@ -47,18 +48,21 @@ const ManageExpense = ({ route, navigation }) => {
         });
     }, [isEditing]);
 
-    const confirmHandler = (expenseData) => {
+    const confirmHandler = async (expenseData) => {
         if (isEditing) {
             expensesContext.updateExpense(editedExpenseId, expenseData);
+            await updateExpense(editedExpenseId, expenseData);
         } else {
-            expensesContext.addExpense(expenseData);
+            const id = await storeExpense(expenseData);
+            expensesContext.addExpense({ ...expenseData, id: id });
         }
         navigation.goBack();
     };
 
-    const deleteExpenseHandler = () => {
-        navigation.goBack();
+    const deleteExpenseHandler = async () => {
         expensesContext.deleteExpense(editedExpenseId);
+        await deleteExpense(editedExpenseId);
+        navigation.goBack();
     };
 
     const cancelhandler = () => {

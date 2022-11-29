@@ -5,6 +5,9 @@ export const GlobalStyles = {
         indigo500: "#6366f1",
         indigo600: "#4f46e5",
 
+        rose50: "#fff1f2",
+        rose400: "#fb7185",
+
         slate50: "#f8fafc",
         slate100: "#f1f5f9",
         slate200: "#e2e8f0",
