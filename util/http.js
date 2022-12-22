@@ -1,11 +1,9 @@
 import axios from "axios";
-
-const BACKEND_URL =
-    "https://react-native-course-d3f4a-default-rtdb.asia-southeast1.firebasedatabase.app";
+import { FIREBASE_API_URL } from "@env";
 
 export const storeExpense = async (expenseData) => {
     const response = await axios.post(
-        BACKEND_URL + "/expenses.json",
+        FIREBASE_API_URL + "/expenses.json",
         expenseData
     );
 
@@ -15,7 +13,7 @@ export const storeExpense = async (expenseData) => {
 };
 
 export const fetchExpenses = async () => {
-    const response = await axios.get(BACKEND_URL + "/expenses.json");
+    const response = await axios.get(FIREBASE_API_URL + "/expenses.json");
 
     const expenses = [];
 
@@ -34,9 +32,9 @@ export const fetchExpenses = async () => {
 };
 
 export const updateExpense = (id, expenseData) => {
-    return axios.put(`${BACKEND_URL}/expenses/${id}.json`, expenseData);
+    return axios.put(`${FIREBASE_API_URL}/expenses/${id}.json`, expenseData);
 };
 
 export const deleteExpense = (id) => {
-    return axios.delete(`${BACKEND_URL}/expenses/${id}.json`);
+    return axios.delete(`${FIREBASE_API_URL}/expenses/${id}.json`);
 };
