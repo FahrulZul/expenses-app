@@ -1,5 +1,7 @@
 import axios from "axios";
-import { FIREBASE_API_URL } from "@env";
+
+const FIREBASE_API_URL =
+    "https://react-native-course-d3f4a-default-rtdb.asia-southeast1.firebasedatabase.app";
 
 export const storeExpense = async (expenseData) => {
     const response = await axios.post(

@@ -1,42 +1,39 @@
 {
-  "expo": {
-    "name": "My Expense",
-    "description": "Track your expense with this app.",
-    "slug": "myExpense",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/myIcon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/my-splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "buildNumber": "1.00",
-      "supportsTablet": true
-    },
-    "android": {
-      "versionCode": 1,
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/my-adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.fahrulzul.myExpense"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "89c13fff-073f-4b6b-be3e-513b8b7cd0e5"
-      }
+    "expo": {
+        "name": "My Expense",
+        "slug": "myExpense",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/expense-icon.png",
+        "userInterfaceStyle": "light",
+        "splash": {
+            "image": "./assets/expense-splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "buildNumber": "1.0.0",
+            "supportsTablet": true
+        },
+        "android": {
+            "versionCode": 1,
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/expense-adaptive-icon.png",
+                "backgroundColor": "#FFFFFF"
+            },
+            "package": "com.fahrulzul.myExpense"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "extra": {
+            "eas": {
+                "projectId": "89c13fff-073f-4b6b-be3e-513b8b7cd0e5"
+            }
+        }
     }
-  }
 }
