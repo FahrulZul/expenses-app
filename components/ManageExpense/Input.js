@@ -27,13 +27,11 @@ const styles = StyleSheet.create({
         marginHorizontal: 4,
     },
     label: {
-        fontFamily: "lexend-500",
         fontSize: 12,
         color: GlobalStyles.colors.slate600,
         marginBottom: 4,
     },
     input: {
-        fontFamily: "lexend-600",
         fontSize: 12,
         backgroundColor: GlobalStyles.colors.slate100,
         borderRadius: 5,

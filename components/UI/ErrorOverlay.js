@@ -21,12 +21,10 @@ const styles = StyleSheet.create({
         padding: 24,
     },
     errorTitle: {
-        fontFamily: "lexend-600",
         fontSize: 16,
         marginBottom: 5,
     },
     errorText: {
-        fontFamily: "lexend-400",
         color: GlobalStyles.colors.slate500,
     },
 });

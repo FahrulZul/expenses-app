@@ -46,17 +46,14 @@ const styles = StyleSheet.create({
         marginHorizontal: 16,
     },
     descText: {
-        fontFamily: "lexend-400",
         fontSize: 14,
         marginBottom: 5,
     },
     dateText: {
-        fontFamily: "lexend-400",
         fontSize: 12,
         color: GlobalStyles.colors.slate400,
     },
     amountText: {
-        fontFamily: "lexend-500",
         fontSize: 14,
     },
 });

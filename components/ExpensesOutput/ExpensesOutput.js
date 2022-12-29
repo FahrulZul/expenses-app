@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
     },
     text: {
-        fontFamily: "lexend-600",
         fontSize: 14,
         paddingVertical: 24,
         textAlign: "center",

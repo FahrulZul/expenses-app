@@ -154,12 +154,10 @@ const styles = StyleSheet.create({
         marginRight: 8,
     },
     errorTitle: {
-        fontFamily: "lexend-600",
         fontSize: 12,
         color: GlobalStyles.colors.slate800,
     },
     errorText: {
-        fontFamily: "lexend-400",
         fontSize: 12,
         color: GlobalStyles.colors.slate400,
     },

@@ -18,7 +18,10 @@ const ExpensesSummary = ({ expenses, periodName }) => {
         <View style={styles.container}>
             <View>
                 <Text style={styles.periodText}>{periodName}</Text>
-                <Text style={styles.amountText}>${expensesSum.toFixed(2)}</Text>
+                <View style={styles.amountContainer}>
+                    <Text style={styles.priceUnit}>RM</Text>
+                    <Text style={styles.amount}>{expensesSum.toFixed(2)}</Text>
+                </View>
             </View>
             <ButtonIcon
                 isIcon={true}
@@ -43,12 +46,22 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     periodText: {
-        fontFamily: "lexend-400",
         fontSize: 14,
         color: GlobalStyles.colors.slate500,
+        marginBottom: 16,
     },
-    amountText: {
-        fontFamily: "lexend-500",
+    amountContainer: {
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+    },
+    amount: {
         fontSize: 40,
+    },
+    priceUnit: {
+        fontSize: 20,
+        marginTop: 10,
+        marginRight: 3,
+        color: GlobalStyles.colors.slate600,
     },
 });

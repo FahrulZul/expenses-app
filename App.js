@@ -1,7 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -13,27 +12,31 @@ import { GlobalStyles } from "./constants/styles";
 import ManageExpense from "./screens/ManageExpense";
 import ExpensesContextProvider from "./store/expenses-context";
 
+SplashScreen.preventAutoHideAsync();
+
 export default function App() {
-    const [fontsLoaded] = useFonts({
-        "lexend-400": require("./assets/fonts/Lexend/Lexend-Regular.ttf"),
-        "lexend-500": require("./assets/fonts/Lexend/Lexend-Medium.ttf"),
-        "lexend-600": require("./assets/fonts/Lexend/Lexend-SemiBold.ttf"),
-    });
+    const [appIsReady, setAppIsReady] = useState(false);
 
     useEffect(() => {
         async function prepare() {
-            await SplashScreen.preventAutoHideAsync();
+            try {
+                await new Promise((resolve) => setTimeout(resolve, 2000));
+            } catch (e) {
+                console.warn(e);
+            } finally {
+                setAppIsReady(true);
+            }
         }
         prepare();
     }, []);
 
     const onLayoutRootView = useCallback(async () => {
-        if (fontsLoaded) {
+        if (appIsReady) {
             await SplashScreen.hideAsync();
         }
-    }, [fontsLoaded]);
+    }, [appIsReady]);
 
-    if (!fontsLoaded) {
+    if (!appIsReady) {
         return null;
     }
 
@@ -45,7 +48,6 @@ export default function App() {
             <BottomTab.Navigator
                 screenOptions={{
                     headerTitleStyle: {
-                        fontFamily: "lexend-500",
                         fontSize: 16,
                     },
                     tabBarStyle: {
@@ -58,7 +60,6 @@ export default function App() {
                         paddingTop: 12,
                     },
                     tabBarLabelStyle: {
-                        fontFamily: "lexend-400",
                         fontSize: 12,
                     },
                     tabBarActiveTintColor: GlobalStyles.colors.slate800,
@@ -125,7 +126,6 @@ export default function App() {
                                 options={{
                                     presentation: "modal",
                                     headerTitleStyle: {
-                                        fontFamily: "lexend-500",
                                         fontSize: 16,
                                     },
                                     headerShadowVisible: false,

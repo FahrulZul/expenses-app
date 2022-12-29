@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
         marginRight: 4,
     },
     text: {
-        fontFamily: "lexend-500",
         fontSize: 12,
         color: GlobalStyles.colors.slate900,
     },
